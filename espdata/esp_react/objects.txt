@@ -1,0 +1,1356 @@
+
+
+// Store Global Structures
+class STCurrentClass {
+	stPlan: new stPlan
+	constructor(stPlan,arrBk,arrRg,arrWk){
+	this.stPlan =stPlan	//is STLessPlan
+	this.arrBk=arrBk //	is array of stBook
+	this.arrRg=arrRg	is array of STRegisterEntry
+	arrWk	is array of STWorkAssignment
+}}
+class STLessonAndGroupAndFiles {
+	constructor(stLP,arrBk){
+	stLP	is STLessPlan
+	arrBk	is array of stBook
+}}
+STbody			{
+	contentType	is string
+	content		is string
+}}
+STLessOutline { 
+	stLess	is STLesson
+	stSess	is STSessDet
+}}
+STGradeBoundaries {
+	Grade				is string
+	GradeBoundariesID	is 8byte int
+	Lesson_FilesID		is 8byte int
+	Mark				is int	
+}}
+STOutline {
+	stCl	is STClass
+	stOl	is STLessOutline	
+	stArch	is STArchive
+}}
+STClass {
+	sGroupName	is string
+	nGrpID		is 8byte int
+	arrTeach	is array of STIndividual
+	arrStudent	is array of STIndividual	
+	arrImages	is array of STImg
+	arrFoc		is array of STRegisterEntry
+	arrSkill	is array of STIndividual
+}}
+STPastActivity {
+	nPlanid		is 8byte int
+	stActive	is  STLessFile
+	nAssign		is int
+	nPrint		is int
+	nOrd		is int
+	nTime		is int	
+	stMem		is STMemo
+}}
+
+STArchive {
+	sTeacherForname	is string
+	sTeacherSurname	is string
+	nDte			is 8byte int
+	sGrp			is string
+	nOut			is 8byte int
+	arrPastLP		is array of STPastActivity
+}}
+STLessPlanEntry {
+	nInd is 8byte int
+	nLPID		is 8byte int
+	nFile		is 8byte int
+	nOut is 8byte int
+	nPrt is int
+	nOrd is int
+	nLessStQu is 8byte int
+	stMem is STMemo
+}}
+STLessPlanSave {
+	nLess	is 8byte int
+	nOut	is 8byte int
+	arrLPE	is array of STLessPlanEntry
+	arrWA	is array of STWorkAssignment	
+}}
+
+STLessPlan {
+	STOutl			is STOutline
+	stThisPlan		is STArchive
+	arrCurrentPlan	is array of STPastActivity
+	arrNotInPlan	is array of STLessFile
+	arrWork			is array of STWorkAssignment
+	arrMarkScheme	is array of STMarkSchemeHeader
+	arrMarkBook		is array of STMarkSchemeHeader
+	arrSkillBook	is array of STSkillsmarkbook
+	stCRg is  STClassRegister
+	stDs is STClassDissmissed
+	sPlanned is string
+	arrGM is array of STGroupMembership
+}}
+STemailAddress {
+	name	is string
+	address	is string
+}}
+STfrom {
+	emailAddress is STemailAddress
+}}
+STLessonPlanDetailsGET {
+	arrBk	is array of stBook
+	stLP	is STLessPlan
+}}
+STMarkbook {
+	MarkbookID			is 8byte int
+	Mark				is int
+	grade				is string
+	arrIndMarks			is array of STMarkbookmarks
+	arrSk				is array of STSkillsmarkbook
+	sSingleArraySkill	is string
+	WorkAssignID		is 8byte int
+	nIndID				is 8byte int	
+}}
+STMarkbookmarks {
+	MarkBookMarksID		is 8byte int
+	IndividualsID		is 8byte int
+	MarkSchemeAnswersID	is 8byte int
+	Mark				is int
+	MarkbookID			is 8byte int
+}}
+STSkillsmarkbook {
+	SkillsMarkBookID	is 8byte int
+	MarkbookID			is 8byte int
+	Skills_keyID		is 8byte int
+	IndividualsID		is 8byte int
+	FileID				is 8byte int
+	Mark				is 8byte int 
+}}
+STJSONEmailDataValue {
+	'@odata.etag'		is string
+	id					is string
+	receivedDateTime	is string
+	hasAttachments		is boolean
+	Subject				is string
+	bodyPreview			is string
+	isRead				is boolean
+	body				is STbody
+	from				is STfrom
+}}
+STJSONEmailData {
+	'@odata.context'	is string
+	'@odata.nextLink'	is string
+	value				is array of STJSONEmailDataValue 
+}}
+STSkillDisplay {
+	NodeCount			is int
+	SkillID				is 8byte int
+	rStartOffsetX		is real
+	rNodeSize			is real
+	parentX				is real
+	nUmberOfChildren	is int
+	SkillName			is string
+	rChildX				is real
+	rChildY				is real
+	OffSpringSkillID	is 8byte int
+}}
+STParents {
+	nSkillID is int	
+}}
+STOffspring {
+	nSkillID	is int
+	nLinkLength	is int
+}}
+STDeadline {
+	nID			is 8byte int
+	sTitle		is string
+	sGrp		is string
+	stMem		is STMemo
+	nDte		is 8byte int
+	nCompl		is 8byte int
+	sCreator	is string
+	arrInd		is array of STAtt}}ee
+	arrGrp		is array of STGroupAtt}}
+	arrCompl	is array of STGroupDeadline
+	arrFile		is array of STAttachedFile
+}}
+STGroupDeadline {
+	stIndID	is STIndividual
+	nCompl	is 8byte int
+}}
+STAttachedFile {
+	sFileName	is string
+	sExt		is string
+	nExtFileID	is 8byte int	
+}}
+STColorCodes {
+	GroupColourCodesID is 8byte int
+	ColorCode			is string
+}}
+STAtt}}ee {
+	nIndID		is 8byte int
+	sName		is string
+	sAge		is string
+	nStaff		is int
+	nContact	is int
+	nStudent	is int
+}}
+STGroupAtt}} {
+	sGroupName	is string
+	arrAtt		is array of STAtt}}ee
+}}
+STTopicSessionsAndLessons {
+	stTopicPln		is STTopicPlan
+	arrRoomTyp		is array of STFoldBr
+}}
+STCoursePlan {
+	CoursesID				is 8byte int
+	Course_plan_headerID	is 8byte int
+	nStartDate				is 8byte int
+	sGroupAppliesTo			is string
+	LessonsAvail			is int
+	LessonsRemain			is int
+	stDeadlineDt			is STDeadline
+	Course_plan_name		is string	
+	arrSegments				is array of STcourse_segment
+}}
+STTTButton {
+	stTTent is STTimeTableBlock
+	sbuttonName is string 
+	nLess is 8byte int
+	nDay is int
+	nXPos is int
+	nYPos is int
+	nWidth is int
+	nHeight is int
+	sCol is string
+	sCaption is string
+	sName is string
+	nAcross is int
+	nDown is int 	
+}}
+STcourse_segment {
+	nCPSID			is 8byte int
+	stLastSession	is STSessDet
+	stFirstSession	is STSessDet
+	stTop			is STTopic
+	nTotalSessions	is int
+	lessonsUsed		is int
+}}
+STRoom_types {
+	room_typesID is 8byte int
+	description is string
+	type_of_room is string	
+}}
+STFile_Types {
+	
+File_TypesID	is 8-byte int		<MAPPING=File_TypesID, unique key	, Serialize="File_TypesID">
+TypeName		is  string	<MAPPING=TypeName					, Serialize="TypeName">
+description		is  string	<MAPPING=description				, Serialize="Description">
+}}
+
+STSkillNode {
+	xPos		is numeric
+	yPos		is numeric
+	stSkl		is STSkill
+	nKeyNum		is int
+	arrP		is array of STParents
+	arrO		is array of STOffspring
+}}
+STLessFile {
+	stFold			is STFolderDesc	
+	sFilename		is string
+	sLongname		is string	
+	nFile			is 8byte int
+	nMarksAvail		is int
+	nHidden			is int
+	nFold			is 8byte int
+	nLess			is 8byte int
+	sCloudID		is string
+	nTime			is int
+	nType			is 8byte int
+	sType			is string
+	sMemo			is string
+	sFoldLoc		is string
+	sAudio			is string
+	arrLink			is array of 8byte int
+	stBkRef			is STBookRef
+	stWebAdd		is STURL
+	arrSkill		is array of STSkill
+	nPrintQty		is int
+	nFav			is int
+	nFavID			is 8byte int
+	stLPMemo		is STMemo
+	nSect			is int
+	nOrd			is int
+	nLesson_plansID	is 8byte int
+	stMarkSH		is STMarkSchemeHeader
+	stQuest			is STLessQuest
+}}
+STFolderDesc {
+	nFoldID		is 8byte int
+	nFoldParent	is 8byte int
+	sFoldName	is string
+FIN
+STLessQuest {
+	nQuestID	is 8byte int
+	sQuest		is string
+	sAnswer		is string
+	nMarksAv is int
+}}
+STType {
+	TypeName	is string
+	TypeID		is 8-byte int
+}}
+STRoomBooking {
+	Room_bookingsID		is 8byte int
+	stRm is STRoom
+	Lesson_outlineID	is 8byte int
+}}
+
+STLesson {
+	nSubID			is 8byte int
+	nCourse			is 8byte int
+	nTopID			is 8byte int
+	sTopic			is string
+	nLessID			is 8byte int
+	nTopPlanHead	is 8byte int
+	stLessSess		is STSessDet
+	nFoldID			is 8byte int
+	nSection		is int
+	sCode			is string
+	stLessonType	is STType
+	sAudio			is string
+	bPrevPlan		is boolean
+	sFolderLoc		is string
+	sSummary		is string
+	sLessTitle		is string
+	sTableState		is string
+	arrObj			is array of STObjectives
+	arrStart		is array of STStarter
+	arrLink			is array of STLinkedGroup
+	arrAllFiles		is array of STPastActivity
+	arrAllSkill		is array of STSkill
+}}
+STObjectives {
+	sObjective	is string
+	nObjective	is 8byte int
+}}
+STStarter {
+	LessonStarterQuestionsID is 8byte int
+	lessonsID is 8byte int
+	StartQuestion is string
+	Answer is string
+	marksAvail is int
+	Skill_linkID is 8byte int
+}}
+STLinkedGroup {
+	nLinkedID	is 8byte int
+	nLessID		is 8byte int
+	arrFile		is array of STLessFile
+}}
+stCurrentLesson		is STLesson
+STLessPlanSess {
+	stL		is STLessPlan
+	arrW	is array of STWorkAssignment
+}}
+STStudentDisplay	{
+	sReg is string
+	sName		is string
+	nSkill1		is int
+	nSkill2		is int
+	nSkill3		is int
+	nSkill4		is int
+	nStudentID	is int
+}}
+
+
+
+STMemo			{
+	nID			is 8byte int
+	sMemoText	is string	
+}}
+
+STSkillAttach {
+	Skill_attachedID is 8byte int
+	Skills_keyID	is 8byte int
+	Lesson_FilesID is 8byte int
+	CoursesID		is 8byte int
+}}
+STSkillPOST {
+	skills_key is STSkill
+}}
+STSkill {
+	SkillattachmentID	is 8byte int
+	Skill_name			is string
+	Skills_keyID		is 8byte int
+	SkillDescription	is string
+	Criteria1			is string
+	Criteria2			is string
+	Criteria3			is string
+	Criteria4			is string
+	Criteria5			is string
+	DevelopmentAge		is string
+}}
+STSkillLink {
+	OffspringSkillID	is 8byte int
+	ParentSkillID		is 8byte int
+	Skill_linkID		is 8byte int
+	CoursesID			is 8byte int	
+}}
+
+STSkillMap {
+	SkillsMapHeaderID		is 8-byte int	
+	CoursesID				is 8-byte int	
+	Skills_keyID			is 8-byte int	
+	Skill_linkID			is 8-byte int	
+	Skill_name				is string 
+	PointAx				is int			
+	PointBx				is int		
+	PointAy				is int			
+	PointBy				is int		
+}}
+STTopicPlan {
+	nTopicPlanHeaderID	is 8byte int
+	nCreated			is 8byte int
+	nTopicFolderID		is 8byte int
+	arrLess				is array of STLesson
+	arrSess				is array of STSessDet
+}}
+STAppoint {
+	nAppID		is 8byte int
+	sAppName	is string
+	dtStart		is DateTime
+	dt}}		is DateTime
+	sExtLoc		is string
+	arrInd		is array of STAtt}}ee
+	arrGrp		is array of STGroupAtt}}
+	stRm		is STRoomEmpty
+	stSNote		is STNotes
+	nRepID		is 8byte int
+	nRepWks		is int
+	sReplaceTT	is string
+	arrFile		is array of STAttachedFile
+}}
+STNotes {
+	sNote	is string
+	nNoteID	is 8byte int
+}}
+STFileMed {
+	sFile			is string
+	nFileID			is 8byte int
+	nLocalFolderID	is 8byte int
+	sLocalFolder	is string
+	nTime			is int
+	sDescriptiom	is string
+	sCloud			is string
+	nFiletypesID	is 8byte int
+	nMimeTypesID	is 8byte int
+	sFileEntity		is string	
+}}
+STOffTEvent {
+	sTitle		is string
+	tStart		is Time
+	t}}		is Time
+	nStart		is 8byte int
+	n}}		is 8byte int
+	nID			is 8byte int
+	sAppliesTo	is string
+	stBk is STRoomBooking
+}}
+STNodesAttachedInfo {
+	//	CASE "appointments"
+	arrAppt		is array of STAppoint
+	//	CASE "archivedFile"
+	arrArchFile	is array of STFileMed
+	//	CASE "deadlines"
+	arrDead		is array of STDeadline
+	//	CASE	"emails"
+	arrMail		is array of  STJSONEmailDataValue
+	//	CASE	"events"
+	arrEvent	is array of STOffTEvent
+	//	CASE	"files"
+	arrFile		is array of STFileMed
+	//	CASE	"groups"
+	arrGrp		is array of STGroup
+	//	CASE	"homework"
+	arrHome		is array of STWorkAssignment
+	//	CASE	"incident"
+	arrIncid	is array of stIncident
+	//	CASE	"individuals"
+	arrInd		is array of STIndividual
+	//	CASE	"lessons"
+	arrLes		is array of STLesson
+	//	CASE	"memo"
+	arrMem		is array of STMemo
+	//	CASE	"projects"
+	arrProj		is array of STProject
+	//	CASE	"trips"
+	arrTrips	is array of STTrip
+	//	CASE	"voicememo"
+	arrAudio	is array of STAudio
+	// 	CASE 	"photo"
+	arrImage	is array of STImage
+}}
+STGroup {
+	sGroupName	is string
+	arrLeaders	is array of STLeaders
+	arrMemb		is array of STIndividual
+	nTier		is int
+	sEntType	is string
+	nGroupID is 8byte int
+}}
+STImage {
+	nID			is 8byte int
+	sName		is string
+	sImg		is string	
+	stTakenBy	is STIndividual
+	nDateRec	is 8byte int
+}}
+STAudio {
+	
+}}
+STTrip {
+	
+}}
+STProject {
+	
+}}
+stIncident {
+	
+}}
+
+STSafeguardObsIssues {
+	safeguardIssuesID	is 8byte int
+	initialDate			is 8byte int
+	issueDesc			is string
+	Current				is string
+	individualsID		is 8byte int
+	EnteredBy			is 8byte int
+}}
+
+
+
+STLeaders {
+	nPersonID	is 8byte int
+	stI			is STIndividual
+	sTitle		is string
+	sForename	is string
+	sSurname	is string
+	sG}}er		is string
+	nGroupID	is 8byte int
+}}
+stBook {
+	sTitle		is string
+	sPublisher	is string
+	sYear		is string
+	sISBN		is string	
+	nID			is 8byte int
+	sDesc		is string
+	nSubID		is 8byte int
+	sEdition	is string
+	sSub		is string
+}}
+STRoom {	// Room Data	
+	roomsID				is 8-byte int	//Identifier of rooms	
+	Room_name			is  string	//Room_name	
+	Room_layout			is  string	//places	
+	room_typesID		is 8-byte int	//Identifier of room_types	
+	Room_type_name			is string
+	Seats_across		is int			//Seats_across	
+	Seat_down			is int			//Seat_down	
+	Room_description	is string	//Room_description	
+	Capacity			is int			//Room capacity	// Seating plan	
+	seating_plansID		is 8-byte int	//Identifier of seating_plans	
+	sEatplan			is  string	//seating_arrangement	
+	groupsID			is 8-byte int	//Identifier of groups	// Students	
+	GroupName			is string		//Identifier of groups	// Students	
+	nTeach				is 8byte int
+	Room_bookingID		is 8-byte int
+	arrStudents			is array of STIndividual
+}}
+STGMailBoxLabelsContainer {
+	Labels is array of STGMailBoxLabels
+}}
+STGMailBoxLabels {
+	id						is string
+	name					is string
+	messageListVisibility	is string
+	labelListVisibility		is string
+	type					is string
+}}
+STGMAILChangeLabels {
+	addLabelIds		is array of string
+	removeLabelIds	is array of string
+}}
+
+STIndividual {	
+	_id									is string
+	nIndividualsID						is 8byte int	
+	sUniq_Learner_Number_ULN			is string
+	sUnique_Candidate_Identifier_UCI	is string
+	sUCN								is string
+	sLA_Child_ID						is string
+	sUniq_Pupil_Number_UPN				is string
+	sEthnicity							is  string	
+	sMedicalFlag						is  string	
+	sForename							is  string	
+	sFormerForename						is string
+	sFormerSurname						is string
+	sUrname								is string	
+	sMiddleNames						is  string	
+	sPupil_Preferred_Forename			is  string
+	sPupil_Preferred_Surname			is string	
+	nDOb								is 8byte int	
+	dtDOb								is DateTime	
+	stTarg								is STTarget
+	sTitle								is  string	
+	sG}}er								is  string	
+	sUsername							is string
+	sPass								is string
+	sLogin								is string
+	stPhoto								is STImg	
+	stEmail_Address						is STemailAddress
+	nEntitiesID							is 8-byte int	
+	sEntName							is string
+	sID_numb							is  string	
+	sExam_numb							is  string	
+	sReading_age						is  string	
+	sSpelling_age						is  string
+	stM_clAtt}}ance					is STAtt}}ance
+	arrAbilities						is array of STCompetance
+	arrRegEnt							is array of STRegisterEntry
+	arrAtt}}Today						is array of string	
+}}
+STAtt}}ance is a Structure
+	stSuppInform	is STSuppInfo
+	arrYearData		is array of STYearData
+}}
+STClassRegister {
+	nSess		is 8byte int
+	nOut 		is 8byte int
+	arrRegister	is array of STStudentRegister
+}}
+STStudentRegister {
+	nInd	is 8byte int
+	sReg	is string
+	nTime	is 8byte int
+}}
+STDismissal {
+	nInd		is 8byte int
+	nDissmiss	is 8byte int
+	nSess is 8byte int
+}}
+STClassDissmissed {
+	nSess			is 8byte int
+	arrDismissed	is array of STDismissal
+}}
+
+STYearData is a Structure
+	stAttSession			is STAtt}}Sessions
+	sEstab					is string
+	sLEA					is string
+	sSchoolName				is string
+	sSessionsAtt}}ed		is string
+	sSessionsAuthorised		is string
+	sSessionsUnauthorised	is string
+	sSessionsPossible		is string
+	sURN					is string
+	sYear					is string
+}}
+STAtt}}Sessions is a Structure
+	sAtt}}anceMarks		is string
+	nAtt}}anceStartDate	is 8byte int
+}}
+
+STFocRegTypes {
+	sRegName			is string
+	nRegister_typesID	is 8byte int	
+	sColorCode			is string	
+}}
+
+STSuppInfo is a Structure
+	sSuppID is string
+}}
+
+
+STIndivExtra {
+	IndividualsID					is 8byte int	
+	arrAddress						is array of STDwellings
+	stAllPhones						is STPhones
+	arrContact						is array of STContact
+	stBDetails						is STBasicDetails
+	stFSMInfo						is STFSMHistory
+	STLookedAfter						is STLookedAfter
+	STNAWDetails						is STNAWDetails
+	arrSchoolHistory				is array of STAtt}}edSchools
+	STSENhistory						is STSENhistory
+	arrStageAssessment					is array of STStageAssessments
+	arrSuffInfo						is array of string
+	arrTransientChildr					is array of STServiceChildren
+}}
+STPhones is a Structure
+	arrPhones is an array of STPhone
+}}
+STPhone is a Structure
+	sNumb		is string
+	sTypeName	is string
+	sTypeCode	is string
+}}
+STNAWDetails is a Structure
+	nDateOfEntry					is 8byte int
+	sEALAquisition					is string
+	sEthnicitySource				is string
+	sFSMTransitionProtection		is string
+	sHomeWelsh						is string
+	sLanguageSource					is string
+	sNationalIdentity				is string
+	sSENAdviceandAssessment			is string
+	sSENCurriculumandTeachingMethod	is string
+	sSENGroupingandSupport			is string
+	sSENSpecialistResources			is string
+	sSpeakWelsh						is string
+	sWelshSource					is string
+}}
+STSENhistory is a Structure
+	arrProvisions		is array of STSEN
+	SuppInfo			is STSuppInfo
+	arrSENneed			is array of STSENneed
+}}
+STSENneed is a Structure
+	nNeed}}Date			is 8byte int
+	nNeedStartDate			is 8byte int
+	sSENtype				is string
+	sSENtypeRank			is string
+}}
+STSEN is a Structure
+	n}}Date		is 8byte int
+	sSENprovision	is string
+	nStartDate		is 8byte int	
+}}
+
+STLookedAfter is a Structure
+	sCareAuthority	is string
+	sInCare			is string	
+}}
+
+STFSMHistory is a Structure
+	arrFSM			is array of STFSMInstance
+	nFSMReviewDate	is 8byte int
+}}
+STFSMInstance is a Structure
+	nFSM}}Date		is 8byte int
+	nFSMstartDate	is 8byte int
+	sM_sUKcountry	is string	
+}}
+
+STContact is a Structure
+	stContactAddress	is STAddrss
+	stEmail				is STemailAddress
+	sForename			is string
+	sG}}er				is string
+	sMiddleNames		is string
+	nOrder				is int
+	Phone				is STPhones
+	sRelationship		is string
+	sResponsibility		is string
+	SuppInfo			is STSuppInfo
+	sSurname			is string
+	sTitle				is string	
+}}
+STAddrss is a Structure
+	sAddressAsPupil		is string
+	STAddressLines		is STAddressLines
+	stBS7666Version		is STBS7666Address
+	sCounty				is string
+	sCountry			is string
+	sEasting			is string
+	sNorthing			is string
+	sPostcode			is string
+	sZip				is string
+}}
+STFocusLogEntryUpload {
+	Foc_reg_logID is 8byte int
+	Foc_reg_headerID	is 8-byte int
+	Date_of_entry	is 8-byte int
+	Issue_or_support	is  string	
+	Entry			is  string	
+}}
+STAddressLines is a Structure
+	sAddressLine1	is string
+	sAddressLine2	is string
+	sAddressLine3	is string
+	sAddressLine4	is string
+	sAddressLine5	is string
+}}
+STAction {
+	nWhen is 8byte int
+	nWhere is 8byte int
+	nWho is 8byte int
+	nWhat is int 	
+}}
+STApiKey {
+	sPublic		is string
+	sPrivate	is string 
+}}
+STAPIReq {
+	sReqType	is string
+	sVars		is string	
+}}
+STBS7666Address is a Structure
+	AdministrativeArea				is string
+	Locality						is string
+	PAON							is string
+	PostTown						is string
+	SAON							is string
+	Street							is string
+	Town							is string
+	UniquePropertyReferenceNumber	is string
+	UniqueStreetReferenceNumber		is string
+}}
+STAssignChanges {
+	nInd is 8byte int
+	sSeat is string
+	nFile is 8byte int
+	nWA is 8byte int
+	nMB is 8byte int
+	nSkMB is 8byte int
+	nSk is 8byte int
+	sStatus is string
+	sStatusFrom is string
+	nMk is int
+	nSkMk is int
+	nCol is 8byte int
+	sCom is string
+	nMTyp is 8byte int
+	nOut is 8byte int
+	nSet is 8byte int
+	nDue is 8byte int
+}}
+
+
+STIndivAssign {
+	nInd is 8byte int
+	sStudentName is string
+	sFileName is string
+	nFile is 8byte int
+	nWA is 8byte int
+	nSk is 8byte int
+	sSkill is string
+	nSkillmark is int
+	nMarkAwarded is int
+	nMBID is 8byte int
+	sGrade	is string
+	nSkBID	is 8byte int
+	nMarkOutOf is int
+	arrIndMarks		is array of STMarkbookmarks
+	nColl			is 8byte int
+	sComp is string
+	sDue is string
+	nSet is 8byte int
+	nMarkType is 8byte int
+	nComp is 8byte int
+	nDue is 8byte int
+	sAssign is string
+	sMarked is string
+	nTime is int
+	nOutID  is 8byte int 
+}}
+STSkillsCourseResult {
+	stUse	is STUsedCont
+	stUnuse	is STUnusedCont
+	stLk	is STLinkCont
+	stMp	is STMapCont
+}}
+STUsedCont {
+	arrUsed is array of STSkill		
+}}
+STUnusedCont {
+	arrUnused is array of STSkill		
+}}
+STLinkCont {
+	arrLk is array of STSkillLink		
+}}
+STMapCont {
+	arrMap is array of STSkillMap		
+}}
+
+STDisabilities is a Structure
+	arrM_arrDisability is array of Disability
+}}
+STDisability is a Structure
+	sDisable is string
+}}
+
+STGroupMembership is a Structure
+	sGroupName	is string
+	stTarg		is STTarget
+	nInd		is int
+}}
+
+
+STBasicDetails is a Structure
+	stDisabilityList			is  STDisabilities
+	sM_sEnrolStatus				is string
+	sM_sEthnicity				is string
+	sM_sEthnicitySource			is string
+	sM_sFormerSurname			is string
+	sM_sMiddleNames				is string
+	sM_sFormerUPN				is string
+	stM_clLanguage				is STLanguages
+	sM_sMedicalFlag				is string
+	sM_sNCyearActual			is string
+	sM_sPreferredForename		is string
+	sM_sPreferredSurname		is string
+	sM_sServiceChild			is string
+	clM_clSuppInfo				is STSuppInfo
+	
+}}
+STFileCarrier {
+	stLess is STLessFile
+	nCourse is 8byte int
+	nInd is 8byte int
+}}
+STLanguages is a Structure
+	arrType is array of STLType
+}}
+STLType is a Structure
+	sLanguage		is string
+	sLanguageType	is string
+}}
+
+
+STStageAssessments is a Structure
+	arrKeyStages is array of STKeyStage
+}}
+STKeyStage is a Structure
+	Stage					is string
+	arrKeystageAssessment	is array of STKeystageAssessment
+	clSuppInfo				is SuppInfo
+}}
+STServiceChildren is a Structure
+	sConcernDetails		is string
+	nDateOfAssessment	is 8byte int
+	sDeployConcern		is string
+	sMoveConcern		is string
+	sSepConcern			is string
+}}
+
+
+
+STKeystageAssessment is a Structure
+	Component			is string
+	sLocale				is string
+	sMethod				is string
+	sResult				is string
+	nResultDate			is 8byte int
+	sResultQualifier	is string
+	sResultStatus		is string
+	sSubject			is string
+	sYear				is string
+}}
+STGoogleFileResShort {
+	Kind is string
+	id is string
+	Name is string
+	WebContentLink is string
+	MimeType is string
+	Description is string
+	Parents is array of STPrnt
+}}
+STPrnt {
+	
+}}
+
+STAtt}}edSchools is a Structure	
+	nEntryDate			is 8byte int
+	Estab				is string
+	LEA					is string
+	nLeavingDate		is 8byte int
+	LeavingReason		is string
+	RemovalGrounds		is string
+	SchoolName			is string
+	clSuppInfo			is SuppInfo
+	URN					is string
+}}
+STRegTypes {
+	Register_typesID			is 8-byte int		
+	RegName					is string
+	FocusRegColourCodesID	is 8-byte int	
+	Contact_name is string
+	Contact_email is string 
+}}
+STFocHead {
+	Foc_reg_headerID is 8byte int
+	Register_typesID is 8byte int
+	IndividualsID is 8byte int
+	Summary is string
+	conatct_name is string
+	contact_email is string
+}} 
+
+
+STRegisterEntry {
+	nType			is 8byte int
+	nHead			is 8byte int
+	sType			is string
+	arrLogIssue		is array of STRegisterLogEntry
+	arrLogSupport	is array of STRegisterLogEntry
+	sContactname	is string
+	sContactEmail	is string
+	sSummary		is string
+	nIndID			is 8byte int
+	sColCode		is string
+}}
+STRegisterLogEntry {
+	nLogID		is 8byte int
+	sIssue		is string
+	sDetail		is string
+	nDateofEnt	is 8byte int
+}}
+STTarget is a Structure
+	nDateSet		is 8byte int
+	sSubName		is string
+	sTarg			is string
+	nGroupMembID	is 8byte int
+	nSubID			is 8byte int
+	nTarg			is 8byte int
+}}
+STSeatPlanGET {
+	arrroomList	is array of STRoom
+	stRm		is STRoom
+}}
+STSanction {
+	SanctType is STSanctionType
+	sRoom is string
+	nStart is 8byte int
+	n}} is 8byte int
+	nSet		is 8byte int
+	stInd is STIndividual
+}}
+STSanctionType {
+	sName is string
+	nID is 8byte int
+}}
+STMinorTransgression {
+	sType is string
+	nType is 8byte int
+	nInd is 8byte int
+	nTime is 8byte int
+	nOut is 8byte int
+	nSess is 8byte int
+}}
+
+STDwellings {
+	nDwellingsID			is 8-byte int		//Identifier of Dwellings
+	sSubNameOrNumber		is ANSI string		//SubNameOrNumber
+	sBuildNameNumber		is ANSI string		//BuildNameNumber
+	sStreet					is ANSI string		//Street
+	sLocality				is ANSI string		//Locality
+	sTown					is ANSI string		//Town
+	sAdminArea				is ANSI string		//AdminArea
+	sPostTown				is ANSI string		//PostTown
+	sPostCode				is ANSI string		//PostCode
+	xPropertyEasting		is numeric			//PropertyEasting
+	xPropertyNorthing		is numeric			//PropertyNorthing
+	sAddressLine1			is ANSI string		//AddressLine1
+	sAddressLine2			is ANSI string		//AddressLine2
+	sAddressLine3			is ANSI string		//AddressLine3
+	sAddressLine4			is ANSI string		//AddressLine4
+	sAddressLine5			is ANSI string		//AddressLine5
+	nPhoneContactID			is int				//PhoneContactID
+}}
+STGroupMembersDetailsGET {
+	arrCl	is array of STIndividual
+	arrTc	is array of STIndividual
+	arrRg	is array of STRegisterEntry
+}}
+STCompetance {
+	arrAttempts	is array of STSkillTried
+	xAve		is numeric
+	stIndSkill	is STSkill
+}}
+STSkillTried {
+	nAssign	is 8byte int
+	nSkill	is 8byte int
+	nScore	is int
+}}
+
+STSessDet {
+	nStart			is 8byte int
+	n}}			is 8byte int
+	nOutID			is 8byte int
+	nGrp			is 8byte int
+	sAtt}}			is string
+	nTeachID		is 8byte int
+	sTeachForename	is string
+	sTeachTitle		is string
+	sTeachSurname	is string
+	sGroup			is string
+	nSlotID			is 8byte int
+	nTTID			is 8byte int
+	nTopicPlanID	is 8byte int
+	sPeriodName		is string
+	nPeriodID		is 8byte int
+	stRm			is STRoom
+	sTableState		is string
+	nDay			is int
+}}
+
+STURL {
+	sURL	is string
+	sDesc	is string
+	nID		is 8byte int
+	nSub	is 8byte int	
+	sSub	is string
+}}
+STBookRef { 
+	bk		is stBook
+	sPages	is string
+	nBrID	is 8byte int
+}}
+STWorkAssignment {
+	nWAID				is 8byte int
+	nLesson_outlineID	is 8byte int
+	sRemoved			is string
+	sLate				is string
+	nHomeWork			is int
+	sMitigate			is string 
+	stF					is STLessFile
+	nDateSet			is 8byte int
+	nDueDate			is 8byte int
+	nCollected			is 8byte int
+	nIndividualsID		is 8byte int
+	MarkTypesID			is 8byte int
+	OnTime				is int
+	MBEntry				is STMarkbook
+	sCompleted			is string	
+}}
+STWorkOrg {
+	nInd is 8byte int
+	sSeat is string
+	arrWk is array of STWorkAssignment
+}}
+STWorkByAct {
+stF is STLessFile
+arrSet	is array of STWorkBr
+arrCol is array of STWorkBr
+arrMk is array of STWorkBr	
+}}
+STWorkBr {
+	nInd is 8byte int
+	nSet is 8byte int
+	nMk is 8byte int
+	nCol is 8byte int
+}}
+STImg {
+	nID		is 8byte int
+	sName	is string
+	sImg	is string	
+}}
+
+STMarkSchemeHeader {
+	nMSHID			is 8byte int
+	sTmpID			is string
+	stFileAssoc		is STFileBr
+	stSchemeFile	is STFileBr
+	nMarksAvail		is int
+	arrAns			is array of STMarkSchemeAnswers
+	arrGrades		is array of STGradeBoundaries
+}}
+STWorkEntitiy {
+	nFile			is 8byte int
+	nInd			is 8byte int
+	nWAID			is 8byte int
+	nSchemeFileID	is 8byte int
+	sChemeFileCloud	is string
+	nOut			is 8byte int
+	nPoint			is int
+	stMarkSc		is STMarkSchemeHeader
+	stWkAs			is STWorkAssignment
+}}
+
+STTimetableRep {
+	arrTimetableSlots	is array of STTimeTableBlock
+	clash				is array of 8byte int
+	WkAorB				is string
+}}
+
+
+STNodesAttached {
+	nNodeID				is 8byte int
+	sKnownNodeName		is string
+	nKnownNodeID		is 8byte int
+	sUnknownNodeName	is string
+	nUnknownNodeID		is 8byte int
+}}
+
+STMarkSchemeAnswers {
+	nMSAnsID		is 8byte int
+	QuNo			is string
+	AnswerListed	is string
+	SkillInc		is STSkill
+	SubTopic		is string	
+	nMarksAvail		is int		
+}}
+STGroupShort {
+	sGroupName	is string
+	nGroup		is 8byte int
+	stTch		is STTeach	
+}}
+STTeach {
+	sName	is string
+	nID		is 8byte int
+	sCode	is string	
+}}
+STSubBrf {
+	sName		is string
+	hidden		is int
+	nID			is 8byte int
+	sLoc		is string
+	arrCou		is array of STCouBrf
+	arrFil		is array of STFileBr
+	stSubFold	is STFoldBr
+FIN
+STCouBrf {
+	sName		is string
+	hidden		is int
+	sCode		is string
+	nID			is 8byte int
+	arrTop		is array of STTopBrf
+	arrFil		is array of STFileBr
+	stCouFold	is STFoldBr
+FIN
+STLesBrf {
+	sName		is string
+	hidden		is int
+	sCode		is string
+	nID			is 8byte int
+	arrFil		is array of STFileBr
+	stLesFold	is STFoldBr
+FIN
+STTopBrf {
+	sName			is string
+	nTopID			is 8byte int
+	sCode			is string
+	hidden			is int
+	nlessCount		is int
+	nLessAvail		is int
+	ArrLes			is array of STLesBrf
+	arrFil			is array of STFileBr
+	stTopFold		is STFoldBr
+FIN
+STFoldBr {
+	sFoldName	is string
+	sCode		is string
+	nID			is 8byte int
+	sCloudID	is string
+FIN
+STLocalFolder {
+	LocalFoldersID		is 8-byte int	
+	FolderName			is ANSI string	
+	ParentID			is 8-byte int
+	FolderNameParentID	is Buffer
+	SubjectID			is 8-byte int	
+	hidden				is boolean		
+	CloudID				is ANSI string	
+	TopicsID			is 8-byte int			//TopicsID
+	CoursesID			is 8-byte int			//CoursesID
+	Lesson_FilesID		is 8-byte int			//Lesson_FilesID
+	Flag				is string
+}}
+STTopic {
+	TopicsID			is 8-byte int
+	topicName			is ANSI string
+	folderRemote		is ANSI string
+	CoursesID			is 8-byte int
+	topicNameCoursesID	is Buffer
+	topicsCode			is ANSI string
+	LocalFoldersID		is 8-byte int
+	topicLong			is ANSI string	
+	folderLocal			is ANSI string	
+	Topic_block_tableID	is 8-byte int
+}}
+STFileBr {
+	sFileName		is string
+	nID				is 8byte int
+	cloudLink		is string
+	nParentID		is 8byte int
+	sBranchtype		is string
+	Typ				is STType
+	hidden			is int	
+FIN
+STRoomEmpty {
+	roomsID				is 8-byte int	//Identifier of rooms	
+	Room_name			is  string		//Room_name	
+	places				is  string		//places	
+	room_typesID		is 8-byte int	//Identifier of room_types	
+	sType				is string
+	nType				is 8byte int
+	Seats_across		is int			//Seats_across	
+	Seat_down			is int			//Seat_down	
+	Room_description	is  string		//Room_description	
+	nCapacity			is int			//Room capacity	// Seating plan	
+	seating_plansID		is 8-byte int	//Identifier of seating_plans	
+	seating_arrangement	is  string		//seating_arrangement	
+}}
+STPeriod {
+	nStart			is string
+	n}}			is string
+	sPeriodName		is string
+	nPeriodID		is 8byte int
+	nDay			is int
+	nSessID			is 8byte int
+	sGrpAppliesTo	is string
+}}
+STTimeTableBlock {
+	sLabel			is string
+	sTeachname		is string
+	stGrp			is STGroupShort
+	stSubjt			is STSubBrf
+	stRm			is STRoom
+	nTTentryID		is 8byte int
+	stPrd			is STPeriod
+	nSess			is 8byte int
+	nOutline		is 8byte int
+	nLesson			is 8byte int
+	sLesson			is string
+	nLPlan			is 8byte int
+}}
+STSafeguardObsType {	
+SafeguardObsTypeID is 8byte int
+description is string
+Level is int
+}}
+STSafeguardObs {
+SafeguardObsID is 8byte int
+DateTimeObs is 8byte int
+SafeguardObsType is 8byte int
+IndividualsID is 8byte int
+leaderID is 8byte int
+}}
+STBehaviours {
+	sBehav				is string
+	nBehav				is int
+	sGroupOrIndividual	is string
+	nTargetLevel		is int
+}}
+STStatement {
+	sState		is string
+	nStateDate	is 8byte int
+	nID			is 8byte int
+}}
+STSubject {
+	SubjectID					is 8-byte int	
+	subject_name				is ANSI string	
+	subjectcode					is ANSI string	
+	OptimCompKey_subje_Subje	is Buffer
+	LocalRootDir				is ANSI string	
+}}
+TbyC {
+	ThisCou	is STCouBrf
+	arrCP	is array of STCoursePlan	
+}}
+
+

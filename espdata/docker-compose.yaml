@@ -1,0 +1,53 @@
+version: '3.8'
+services:
+  db:
+    build: ./database
+    container_name: ESP_MYSQL
+    ports:
+      - '3306:3306'
+    env_file:
+      - ./api/config/.env
+    restart: always
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - FindMEdata:/var/lib/mysql
+    command: mysqld --init-file /docker-entrypoint-initdb.d/init.sql --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci;
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+  api:
+    build: ./api
+    container_name: ESP_API
+    ports:
+      - '3200:3200'
+    expose:
+      - 3200
+    env_file:
+    - ./api/config/.env
+    depends_on:
+        db:
+          condition: service_healthy
+    volumes:
+      - .api/:/api/
+  esp_react:
+      build: ./esp_react
+      container_name: esp_react_c
+      ports:
+        - '3000:3000'
+      # volumes:
+      #   - ./esp_react:/app
+      #   - ./esp_react/node_modules
+      stdin_open: true
+      tty: true
+# networks:
+#   default:  
+  # backend:
+  #     driver: bridge
+  #     ipam:
+  #       driver: default
+  #       config:
+  #         - subnet: 172.16.200.0/20
+  #           gateway: 172.16.200.1
+volumes:
+  FindMEdata:
