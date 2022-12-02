@@ -5,8 +5,7 @@ import App from './App.tsx'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { ThemeProvider } from '@emotion/react';
-import { createTheme } from "@mui/material/styles";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 // import { ThemeProvider } from "@mui/styles"
 import { Providers } from '@microsoft/mgt-react';
 import { Msal2Provider } from '@microsoft/mgt-msal2-provider';
@@ -55,15 +54,14 @@ const theme = createTheme({
 
 // import App from './App';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <ThemeProvider theme={theme}>
-    <App tab="home"/>
-  document.getElementById('root')
-  </ThemeProvider>
-  </React.StrictMode>
+ReactDOM.render( <div>
+                    <React.StrictMode>
+                    <ThemeProvider theme={theme}>
+                      <App/>
+                    </ThemeProvider> 
+                    </React.StrictMode>
+                  </div>,  document.getElementById('root')
 );
-
 // const container = document.getElementById('app');
 // const root = createRoot(container); // createRoot(container!) if you use TypeScript
 // root.render(<ThemeProvider theme={theme}>

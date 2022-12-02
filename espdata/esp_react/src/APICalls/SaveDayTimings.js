@@ -25,14 +25,12 @@ class DayTimingsSave extends Component(props) {
         var { isLoaded, items } = this.state;
         if (!isLoaded) {
             return <div>Loading...</div>
-        } else {
-            return
+        } 
             if (items.statusCode=200){
-            alert("Day timings have been saved")
+                return  alert("Day timings have been saved")
             } else {
-                alert("Error: "+items.statusCode )
+                return  alert("Error: "+items.statusCode )
             }   
-        }
     }
 }
 
