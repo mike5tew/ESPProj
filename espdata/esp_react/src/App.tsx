@@ -7,9 +7,6 @@ import EmailsComponent from './MailComponent';
 import { CssBaseline } from '@mui/material'; 
 
 
-
-
-
 function useIsSignedIn(): [boolean] {
   const [isSignedIn, setIsSignedIn] = useState(false);
 
@@ -29,7 +26,6 @@ function useIsSignedIn(): [boolean] {
 
   return [isSignedIn];
 }
-
 
 
 const App = () => {
@@ -65,6 +61,3 @@ const App = () => {
   );
 };
 export default App;
-
-
-
