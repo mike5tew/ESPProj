@@ -2,13 +2,14 @@
 import './index.css';
 import 'react-app-polyfill/ie11'
 import App from './App.tsx'
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import ReactDOM from 'react-dom/client';
 import './index.css';
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { ThemeProvider, createTheme, StyledEngineProvider } from "@mui/material/styles";
 // import { ThemeProvider } from "@mui/styles"
 import { Providers } from '@microsoft/mgt-react';
 import { Msal2Provider } from '@microsoft/mgt-msal2-provider';
+import  Demo from './components/controls/Drawer';
 
 Providers.globalProvider = new Msal2Provider({
   clientId : "29f252a3-d787-408c-83c2-e9145b935917",
@@ -54,13 +55,12 @@ const theme = createTheme({
 
 // import App from './App';
 
-ReactDOM.render( <div>
-                    <React.StrictMode>
-                    <ThemeProvider theme={theme}>
-                      <App/>
-                    </ThemeProvider> 
-                    </React.StrictMode>
-                  </div>,  document.getElementById('root')
+ReactDOM.createRoot(document.querySelector("#root")).render(
+  <React.StrictMode>
+    <StyledEngineProvider injectFirst>
+      <Demo />
+    </StyledEngineProvider>
+  </React.StrictMode>
 );
 // const container = document.getElementById('app');
 // const root = createRoot(container); // createRoot(container!) if you use TypeScript

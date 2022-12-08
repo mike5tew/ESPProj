@@ -5,6 +5,7 @@ import { default as Input } from "./Input";
 import { default as TimePicker } from "./TimePicker"; 
 import { default as DatePicker } from "./DatePicker"; 
 import { default as Button } from "./Button"; 
+import { default as GroupOrientation } from "./ButtonGroup"; 
 
 const Controls = {
     Select,
@@ -13,6 +14,7 @@ const Controls = {
     Input,
     DatePicker,
     TimePicker,
-    Button
+    Button,
+    GroupOrientation
 }
 export default Controls;

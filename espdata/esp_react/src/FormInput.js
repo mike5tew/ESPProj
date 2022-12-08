@@ -283,9 +283,14 @@ const {
           </Grid>
           <Grid xs={2}></Grid>
           <Grid xs={8}></Grid>
-          <Grid xs={2}><Item><Controls.Button text="Submit" type="submit" onClick={() => {
+          <Grid xs={2}><Controls.GroupOrientation/>
+          <Item>
+          {/* <Controls.Button text="Submit" type="submit" onClick={() => {
+
             alert('clicked' + JSON.stringify(dayTimings));
-          }}/><Controls.Button text="Reset" /></Item></Grid>
+          }}/><Controls.Button text="Reset" /> */}
+          </Item>
+          </Grid>
 
         </Grid>
       </Box>

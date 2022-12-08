@@ -42,7 +42,7 @@ const App = () => {
             <div className='mgt-get-email'>
               {isSignedIn &&
                 <Get resource='me/messages' maxPages={3}>
-                  <EmailsComponent template="value"></EmailsComponent>
+                 {/* <EmailsComponent template="value"></EmailsComponent> */}
                 </Get>
               }
             </div>
